@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alianza Global Solidaria - Ayuda Humanitaria</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración de la fuente Inter -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc; /* Fondo muy claro */
+        }
+        .bg-primary {
+            background-color: #1a3a63; /* Azul Oscuro (Confianza) */
+        }
+        .text-accent {
+            color: #f8c000; /* Dorado/Amarillo (Esperanza) */
+        }
+        .bg-accent {
+            background-color: #f8c000;
+        }
+        /* Estilo para simular un logotipo */
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- 1. Header y Navegación -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logotipo/Nombre de la Organización -->
+            <div class="flex items-center space-x-2">
+                <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM6.5 9a.5.5 0 01.5.5v2a.5.5 0 01-1 0v-2a.5.5 0 01.5-.5zm4 0a.5.5 0 01.5.5v2a.5.5 0 01-1 0v-2a.5.5 0 01.5-.5zm3 0a.5.5 0 01.5.5v2a.5.5 0 01-1 0v-2a.5.5 0 01.5-.5z" clip-rule="evenodd"></path>
+                    <path d="M10 13a3 3 0 100-6 3 3 0 000 6z" fill="#f8c000"></path>
+                </svg>
+                <span class="logo-text text-primary">AGS</span>
+            </div>
+
+            <!-- Navegación (Oculta en móvil, mostrada en escritorio) -->
+            <nav class="hidden md:flex space-x-8 text-gray-700 font-medium">
+                <a href="#inicio" class="hover:text-accent transition duration-150">Inicio</a>
+                <a href="#quienes-somos" class="hover:text-accent transition duration-150">Quiénes Somos</a>
+                <a href="#programas" class="hover:text-accent transition duration-150">Programas</a>
+                <a href="#unirse" class="hover:text-accent transition duration-150">Unirse</a>
+            </nav>
+
+            <!-- Botón de Donación (CTA principal) -->
+            <a href="#donar" class="hidden md:block bg-accent text-primary font-bold py-2 px-6 rounded-full hover:bg-yellow-500 transition duration-300 shadow-lg">
+                ¡Dona Ahora!
+            </a>
+
+            <!-- Botón de Menú para Móvil (Hamburguesa) - Funcionalidad simple con JS -->
+            <button id="menu-button" class="md:hidden text-primary focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="hidden md:hidden bg-primary w-full shadow-lg">
+            <a href="#inicio" class="block py-2 px-4 text-white hover:bg-blue-700">Inicio</a>
+            <a href="#quienes-somos" class="block py-2 px-4 text-white hover:bg-blue-700">Quiénes Somos</a>
+            <a href="#programas" class="block py-2 px-4 text-white hover:bg-blue-700">Programas</a>
+            <a href="#unirse" class="block py-2 px-4 text-white hover:bg-blue-700">Unirse</a>
+            <a href="#donar" class="block py-2 px-4 bg-accent text-primary font-bold text-center hover:bg-yellow-500">¡Dona Ahora!</a>
+        </div>
+    </header>
+
+    <!-- 2. Sección Hero - Impacto Global -->
+    <section id="inicio" class="bg-primary text-white pt-16 pb-20 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">
+                Una Sola Fe, Una Sola Misión: <span class="text-accent">Transformar Vidas</span>
+            </h1>
+            <p class="text-xl sm:text-2xl mb-8 font-light max-w-3xl mx-auto">
+                Unimos la fuerza de **Iglesias Nacionales e Internacionales** y la voluntad de miles de personas para llevar **ayuda tangible** a las comunidades de bajos recursos en todo el mundo.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#programas" class="bg-accent text-primary font-bold py-3 px-8 rounded-full shadow-xl hover:bg-yellow-500 transition duration-300 text-lg">
+                    Ver Nuestros Programas
+                </a>
+                <a href="#contacto" class="border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-primary transition duration-300 text-lg">
+                    Conoce el Impacto
+                </a>
+            </div>
+            
+            <!-- Placeholder de Imagen de Impacto -->
+            <div class="mt-12 w-full h-52 sm:h-80 bg-gray-600 rounded-lg shadow-2xl flex items-center justify-center overflow-hidden">
+                <img src="https://placehold.co/1200x500/1a3a63/ffffff?text=Imagen+de+Comunidad+Asistida" 
+                     alt=""
+                     class="w-full h-full object-cover opacity-70">
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Quiénes Somos / El Concepto del Granito de Arena -->
+    <section id="quienes-somos" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-extrabold text-primary mb-4">
+                    Nuestro Granito de Arena Global
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Creemos que cada pequeña contribución, sumada a la fe y la acción colectiva, tiene el poder de mover montañas.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <!-- Tarjeta 1: Iglesias Nacionales e Internacionales -->
+                <div class="p-8 bg-gray-50 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <svg class="w-12 h-12 text-accent mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243m0 0A8 8 0 0120 7.243V7.243A8 8 0 004 7.243zM15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Red de Fe</h3>
+                    <p class="text-gray-600">Somos la plataforma que unifica a docenas de iglesias con una visión común: extender la mano donde más se necesita, optimizando recursos y alcance.</p>
+                </div>
+                
+                <!-- Tarjeta 2: Personas y Voluntarios -->
+                <div class="p-8 bg-gray-50 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <svg class="w-12 h-12 text-accent mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Acción Individual</h3>
+                    <p class="text-gray-600">Facilitamos que cualquier persona, desde cualquier lugar, pueda aportar su "granito de arena" mediante donaciones seguras o voluntariado virtual y presencial.</p>
+                </div>
+
+                <!-- Tarjeta 3: Enfoque y Transparencia -->
+                <div class="p-8 bg-gray-50 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <svg class="w-12 h-12 text-accent mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Transparencia Total</h3>
+                    <p class="text-gray-600">Nuestro compromiso es con la rendición de cuentas. Cada aporte es rastreado para que nuestros socios vean el impacto directo de su ayuda en las comunidades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Sección de Programas (Áreas de Enfoque) -->
+    <section id="programas" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-extrabold text-primary text-center mb-12">
+                Nuestras Áreas de Impacto
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Programa 1: Alimentación Segura -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="p-6">
+                        <svg class="w-10 h-10 text-accent mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7-8h14a1 1 0 011 1v5a1 1 0 01-1 1H4a1 1 0 01-1-1v-5a1 1 0 011-1z"></path></svg>
+                        <h3 class="text-2xl font-bold text-primary mb-3">1. Seguridad Alimentaria</h3>
+                        <p class="text-gray-600">Distribución de paquetes de alimentos nutritivos y creación de comedores comunitarios para garantizar que los niños y familias tengan al menos una comida diaria.</p>
+                    </div>
+                </div>
+
+                <!-- Programa 2: Educación y Formación -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="p-6">
+                        <svg class="w-10 h-10 text-accent mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.206 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.794 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.794 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.206 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>
+                        <h3 class="text-2xl font-bold text-primary mb-3">2. Becas y Educación</h3>
+                        <p class="text-gray-600">Provisión de útiles escolares, becas para estudios técnicos o universitarios, y desarrollo de centros de refuerzo educativo en zonas vulnerables.</p>
+                    </div>
+                </div>
+
+                <!-- Programa 3: Salud y Bienestar -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="p-6">
+                        <svg class="w-10 h-10 text-accent mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        <h3 class="text-2xl font-bold text-primary mb-3">3. Acceso a Salud</h3>
+                        <p class="text-gray-600">Jornadas médicas gratuitas, entrega de medicinas esenciales y apoyo psicológico a familias que enfrentan crisis de salud sin recursos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. CTA de Unión y Colaboración -->
+    <section id="unirse" class="py-20 bg-primary text-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-extrabold mb-4">
+                ¿Cómo Puedes Ser Parte de Esta Alianza?
+            </h2>
+            <p class="text-xl font-light mb-10">
+                Tu aporte, sea grande o pequeño, hace la diferencia. Elije la forma en que deseas extender la esperanza.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Columna 1: Iglesias y Organizaciones -->
+                <div class="p-8 bg-white rounded-xl shadow-2xl text-primary border-t-4 border-accent">
+                    <h3 class="text-2xl font-bold mb-3">Para Iglesias y Ministerios</h3>
+                    <p class="text-gray-600 mb-4">
+                        Integra tu congregación a nuestra red global de apoyo. Colabora en misiones internacionales, intercambia recursos y amplía tu impacto.
+                    </p>
+                    <a href="#contacto" class="bg-primary text-white font-bold py-3 px-6 rounded-full hover:bg-blue-700 transition duration-300 shadow-lg">
+                        Unir Mi Iglesia
+                    </a>
+                </div>
+
+                <!-- Columna 2: Individuales y Donantes -->
+                <div id="donar" class="p-8 bg-white rounded-xl shadow-2xl text-primary border-t-4 border-accent">
+                    <h3 class="text-2xl font-bold mb-3">Para Personas y Donantes</h3>
+                    <p class="text-gray-600 mb-4">
+                        Aporta tu "granito de arena" con una donación única o mensual. Ayuda a financiar una beca, una comida o un kit de primeros auxilios.
+                    </p>
+                    <a href="#donar-form" class="bg-accent text-primary font-bold py-3 px-6 rounded-full hover:bg-yellow-500 transition duration-300 shadow-lg">
+                        Hacer una Donación
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Sección de Formulario de Contacto (Simulado) -->
+    <section id="contacto" class="py-20">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 bg-white p-8 rounded-xl shadow-2xl border-t-4 border-primary">
+            <h2 class="text-3xl font-bold text-primary mb-6 text-center">
+                Contacta a Nuestro Equipo
+            </h2>
+            <form action="#" method="POST" class="space-y-6">
+                <div>
+                    <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre Completo (Organización o Persona)</label>
+                    <input type="text" id="nombre" name="nombre" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-accent focus:border-accent">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-accent focus:border-accent">
+                </div>
+                <div>
+                    <label for="tipo" class="block text-sm font-medium text-gray-700">Motivo de Contacto</label>
+                    <select id="tipo" name="tipo" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-accent focus:border-accent">
+                        <option>Deseo Unir mi Iglesia / Organización</option>
+                        <option>Quiero ser Voluntario/a</option>
+                        <option>Consulta General sobre Programas</option>
+                        <option>Soporte sobre Donaciones</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="mensaje" class="block text-sm font-medium text-gray-700">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-accent focus:border-accent"></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="w-full sm:w-auto bg-primary text-white font-bold py-3 px-10 rounded-full hover:bg-blue-800 transition duration-300 shadow-xl">
+                        Enviar Mensaje
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- 7. Footer -->
+    <footer class="bg-primary pt-12 pb-6 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 border-b border-blue-700 pb-10">
+            <!-- Columna 1: Contacto -->
+            <div>
+                <h3 class="text-xl font-semibold mb-4 text-accent">Contacto</h3>
+                <p class="text-sm">Email: info@alianzaglobal.org</p>
+                <p class="text-sm">Teléfono: +58 412 XXX-XXXX</p>
+                <p class="text-sm mt-2">Sede Principal: Caracas, Venezuela</p>
+            </div>
+
+            <!-- Columna 2: Navegación Rápida -->
+            <div>
+                <h3 class="text-xl font-semibold mb-4 text-accent">Enlaces</h3>
+                <ul class="space-y-2">
+                    <li><a href="#quienes-somos" class="text-sm hover:text-gray-300">Nuestra Historia</a></li>
+                    <li><a href="#programas" class="text-sm hover:text-gray-300">Áreas de Ayuda</a></li>
+                    <li><a href="#unirse" class="text-sm hover:text-gray-300">Colaborar / Voluntariado</a></li>
+                    <li><a href="#" class="text-sm hover:text-gray-300">Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Legal y Transparencia -->
+            <div>
+                <h3 class="text-xl font-semibold mb-4 text-accent">Legal</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-sm hover:text-gray-300">Política de Privacidad</a></li>
+                    <li><a href="#" class="text-sm hover:text-gray-300">Términos de Uso</a></li>
+                    <li><a href="#" class="text-sm hover:text-gray-300">Informe Anual de Impacto</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 4: Redes Sociales -->
+            <div>
+                <h3 class="text-xl font-semibold mb-4 text-accent">Síguenos</h3>
+                <div class="flex space-x-4">
+                    <!-- Icono de Facebook (simulado) -->
+                    <a href="#" aria-label="Facebook" class="text-white hover:text-accent transition duration-150">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.023 2h3.923v3.923h-2.315c-.958 0-1.285.454-1.285 1.256V9h3.923l-.626 3.923h-3.297v10.077h-3.923V12.923H7.923V9h2.177V6.626c0-2.81 1.7-4.184 4.023-4.184z"/></svg>
+                    </a>
+                    <!-- Icono de Instagram (simulado) -->
+                    <a href="#" aria-label="Instagram" class="text-white hover:text-accent transition duration-150">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M7.5 2h9c2.757 0 5 2.243 5 5v9c0 2.757-2.243 5-5 5h-9c-2.757 0-5-2.243-5-5v-9c0-2.757 2.243-5 5-5zm9 2c-2.485 0-4.5 2.015-4.5 4.5s2.015 4.5 4.5 4.5 4.5-2.015 4.5-4.5-2.015-4.5-4.5-4.5zm0 13.5c-4.687 0-8.5-3.813-8.5-8.5s3.813-8.5 8.5-8.5 8.5 3.813 8.5 8.5-3.813 8.5-8.5 8.5zM12 9.5c-1.381 0-2.5 1.119-2.5 2.5s1.119 2.5 2.5 2.5 2.5-1.119 2.5-2.5-1.119-2.5-2.5-2.5z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Derecho de Autor -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 text-center text-sm text-blue-300">
+            &copy; 2025 Alianza Global Solidaria. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- JavaScript para el menú móvil -->
+    <script>
+        document.getElementById('menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Cierra el menú móvil al hacer clic en un enlace
+        document.getElementById('mobile-menu').querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>
