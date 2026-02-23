@@ -1,248 +1,307 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>El Salvador es Cristo | Red Global de Ayuda Humanitaria</title>
-  <meta name="description" content="Conectamos iglesias y personas para transformar vidas con programas de alimentación, salud y educación en comunidades vulnerables." />
+  <title>Fundación El Salvador es Cristo | Ayuda Humanitaria con Transparencia</title>
+  <meta name="description" content="Fundación cristiana que conecta iglesias, voluntarios y donantes para llevar alimentación, salud y educación a comunidades vulnerables." />
+  <meta name="theme-color" content="#0b1f3a" />
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: '#0F2D52',
-            secondary: '#19467A',
-            accent: '#F0B429',
-            neutral: '#F6F8FC'
+            brand: {
+              50: '#eef3ff',
+              100: '#dbe7ff',
+              600: '#1f4e95',
+              700: '#173d76',
+              900: '#0b1f3a'
+            },
+            accent: '#f4b731',
+            surface: '#f7f9fc'
           },
           boxShadow: {
-            soft: '0 10px 30px rgba(15,45,82,0.12)'
+            card: '0 12px 30px rgba(11,31,58,.10)',
+            glow: '0 14px 34px rgba(31,78,149,.20)'
           }
         }
       }
-    };
+    }
   </script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .hero-overlay {
+      background:
+        radial-gradient(1200px 500px at 15% 0%, rgba(244,183,49,.20), transparent 55%),
+        radial-gradient(900px 500px at 90% 10%, rgba(219,231,255,.18), transparent 55%);
+    }
   </style>
 </head>
-<body class="bg-neutral text-slate-700 antialiased">
+<body class="bg-surface text-slate-700 antialiased">
+  <a href="#contenido" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[60] rounded-lg bg-white px-3 py-2 text-sm font-semibold text-brand-900">Saltar al contenido</a>
+
   <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur">
-    <div class="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-      <a href="#inicio" class="flex items-center gap-3">
-        <span class="grid h-10 w-10 place-content-center rounded-xl bg-primary text-white">
-          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21l-7-7 7-11 7 11-7 7z"></path></svg>
-        </span>
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <a href="#inicio" class="flex items-center gap-3" aria-label="Inicio Fundación El Salvador es Cristo">
+        <div class="grid h-11 w-11 place-items-center rounded-xl bg-brand-900 text-white shadow-glow">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2v20M7 7h10" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
         <div>
-          <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Fundación</p>
-          <p class="text-lg font-extrabold text-primary">El Salvador es Cristo</p>
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Fundación</p>
+          <p class="text-base font-extrabold text-brand-900 sm:text-lg">El Salvador es Cristo</p>
         </div>
       </a>
 
-      <nav class="hidden items-center gap-8 text-sm font-semibold text-slate-600 md:flex">
-        <a href="#quienes" class="transition hover:text-primary">Quiénes Somos</a>
-        <a href="#programas" class="transition hover:text-primary">Programas</a>
-        <a href="#impacto" class="transition hover:text-primary">Impacto</a>
-        <a href="#contacto" class="transition hover:text-primary">Contacto</a>
+      <nav class="hidden items-center gap-8 text-sm font-semibold text-slate-600 md:flex" aria-label="Navegación principal">
+        <a href="#quienes" class="transition hover:text-brand-700">Quiénes somos</a>
+        <a href="#programas" class="transition hover:text-brand-700">Programas</a>
+        <a href="#impacto" class="transition hover:text-brand-700">Impacto</a>
+        <a href="#alianzas" class="transition hover:text-brand-700">Alianzas</a>
+        <a href="#contacto" class="transition hover:text-brand-700">Contacto</a>
       </nav>
 
-      <a href="#donar" class="hidden rounded-full bg-accent px-5 py-2.5 text-sm font-bold text-primary transition hover:bg-amber-400 md:inline-flex">Donar ahora</a>
+      <div class="hidden items-center gap-3 md:flex">
+        <a href="#contacto" class="rounded-full border border-brand-700 px-4 py-2 text-sm font-bold text-brand-700 transition hover:bg-brand-50">Voluntariado</a>
+        <a href="#donar" class="rounded-full bg-accent px-5 py-2.5 text-sm font-black text-brand-900 transition hover:brightness-95">Donar ahora</a>
+      </div>
 
-      <button id="menu-btn" class="rounded-lg p-2 text-primary md:hidden" aria-label="Abrir menú">
+      <button id="menu-btn" class="rounded-lg p-2 text-brand-900 md:hidden" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
       </button>
     </div>
+
     <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white md:hidden">
       <div class="space-y-1 px-4 py-3">
-        <a href="#quienes" class="block rounded px-3 py-2 font-medium text-slate-700 hover:bg-slate-100">Quiénes Somos</a>
-        <a href="#programas" class="block rounded px-3 py-2 font-medium text-slate-700 hover:bg-slate-100">Programas</a>
-        <a href="#impacto" class="block rounded px-3 py-2 font-medium text-slate-700 hover:bg-slate-100">Impacto</a>
-        <a href="#contacto" class="block rounded px-3 py-2 font-medium text-slate-700 hover:bg-slate-100">Contacto</a>
-        <a href="#donar" class="mt-2 block rounded bg-accent px-3 py-2 text-center font-bold text-primary">Donar ahora</a>
+        <a href="#quienes" class="block rounded-lg px-3 py-2 font-medium hover:bg-slate-100">Quiénes somos</a>
+        <a href="#programas" class="block rounded-lg px-3 py-2 font-medium hover:bg-slate-100">Programas</a>
+        <a href="#impacto" class="block rounded-lg px-3 py-2 font-medium hover:bg-slate-100">Impacto</a>
+        <a href="#alianzas" class="block rounded-lg px-3 py-2 font-medium hover:bg-slate-100">Alianzas</a>
+        <a href="#contacto" class="block rounded-lg px-3 py-2 font-medium hover:bg-slate-100">Contacto</a>
+        <div class="mt-2 grid grid-cols-2 gap-2">
+          <a href="#contacto" class="rounded-lg border border-brand-700 px-3 py-2 text-center text-sm font-bold text-brand-700">Voluntariado</a>
+          <a href="#donar" class="rounded-lg bg-accent px-3 py-2 text-center text-sm font-black text-brand-900">Donar</a>
+        </div>
       </div>
     </div>
   </header>
 
-  <main>
-    <section id="inicio" class="bg-gradient-to-br from-primary via-secondary to-primary text-white">
-      <div class="mx-auto grid w-full max-w-7xl gap-10 px-4 py-16 sm:px-6 md:py-24 lg:grid-cols-2 lg:items-center lg:px-8">
+  <main id="contenido">
+    <section id="inicio" class="hero-overlay bg-brand-900 text-white">
+      <div class="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 md:py-24 lg:grid-cols-[1.1fr_.9fr] lg:items-center lg:px-8">
         <div>
-          <p class="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-widest">
-            Red global de ayuda humanitaria
-          </p>
-          <h1 class="text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
-            Fe que se convierte en 
-            <span class="text-accent">acción real</span>
-          </h1>
-          <p class="mt-6 max-w-xl text-lg text-slate-100">
-            Conectamos iglesias, voluntarios y donantes para servir a comunidades vulnerables con programas sostenibles de alimentación, educación y salud.
-          </p>
+          <p class="mb-5 inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em]">Unidad cristiana con impacto social</p>
+          <h1 class="text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">Transformamos <span class="text-accent">fe</span> en ayuda concreta para familias vulnerables.</h1>
+          <p class="mt-6 max-w-xl text-lg text-slate-100">Conectamos iglesias, personas y empresas para ejecutar proyectos de alimentación, salud y educación con trazabilidad y resultados medibles.</p>
+
           <div class="mt-8 flex flex-col gap-4 sm:flex-row">
-            <a href="#programas" class="rounded-full bg-accent px-8 py-3 text-center font-bold text-primary transition hover:bg-amber-400">Conocer programas</a>
-            <a href="#contacto" class="rounded-full border border-white/60 px-8 py-3 text-center font-bold text-white transition hover:bg-white hover:text-primary">Unirme a la misión</a>
+            <a href="#donar" class="rounded-full bg-accent px-8 py-3 text-center font-black text-brand-900 shadow-glow transition hover:brightness-95">Quiero donar</a>
+            <a href="#contacto" class="rounded-full border border-white/70 px-8 py-3 text-center font-bold text-white transition hover:bg-white hover:text-brand-900">Unirme como aliado</a>
           </div>
-          <div class="mt-8 grid max-w-md grid-cols-3 gap-4 text-center">
+
+          <dl class="mt-9 grid max-w-xl grid-cols-3 gap-4 text-center">
             <div class="rounded-xl bg-white/10 p-3">
-              <p class="text-2xl font-extrabold">+40</p>
-              <p class="text-xs text-slate-200">Iglesias aliadas</p>
+              <dt class="text-xs uppercase tracking-wide text-slate-200">Iglesias</dt>
+              <dd class="text-2xl font-extrabold">42+</dd>
             </div>
             <div class="rounded-xl bg-white/10 p-3">
-              <p class="text-2xl font-extrabold">+1,200</p>
-              <p class="text-xs text-slate-200">Familias apoyadas</p>
+              <dt class="text-xs uppercase tracking-wide text-slate-200">Voluntarios</dt>
+              <dd class="text-2xl font-extrabold">900+</dd>
             </div>
             <div class="rounded-xl bg-white/10 p-3">
-              <p class="text-2xl font-extrabold">12</p>
-              <p class="text-xs text-slate-200">Comunidades activas</p>
+              <dt class="text-xs uppercase tracking-wide text-slate-200">Familias</dt>
+              <dd class="text-2xl font-extrabold">1,300+</dd>
             </div>
-          </div>
+          </dl>
         </div>
-        <div class="overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
-          <img src="https://images.unsplash.com/photo-1469571486292-b53601020bf5?auto=format&fit=crop&w=1200&q=80" alt="Voluntarios entregando ayuda comunitaria" class="h-full min-h-[340px] w-full object-cover" />
+
+        <div class="overflow-hidden rounded-3xl border border-white/20 bg-white/5 shadow-2xl">
+          <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80" alt="Equipo de voluntarios compartiendo alimentos" class="h-full min-h-[340px] w-full object-cover" />
         </div>
       </div>
     </section>
 
-    <section id="quienes" class="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <section id="quienes" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-secondary">Quiénes somos</p>
-        <h2 class="mt-3 text-3xl font-black text-primary sm:text-4xl">Una plataforma de unidad y servicio</h2>
-        <p class="mt-4 text-lg text-slate-600">Trabajamos para que cada donación, oración y esfuerzo voluntario llegue de forma transparente a quienes más lo necesitan.</p>
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Quiénes somos</p>
+        <h2 class="mt-3 text-3xl font-black text-brand-900 sm:text-4xl">Una red confiable para servir con excelencia</h2>
+        <p class="mt-4 text-lg text-slate-600">No somos solo una página de donaciones: somos una plataforma operativa que coordina recursos, seguimiento y acompañamiento comunitario.</p>
       </div>
 
       <div class="mt-12 grid gap-6 md:grid-cols-3">
-        <article class="rounded-2xl bg-white p-7 shadow-soft">
-          <div class="mb-4 inline-flex rounded-xl bg-primary/10 p-3 text-primary">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V3m0 5l6 6m-6-6l-6 6"></path></svg>
-          </div>
-          <h3 class="text-xl font-bold text-primary">Red de iglesias</h3>
-          <p class="mt-2 text-slate-600">Impulsamos colaboración entre iglesias locales e internacionales para ampliar el alcance social.</p>
+        <article class="rounded-2xl bg-white p-7 shadow-card">
+          <h3 class="text-xl font-bold text-brand-900">Coordinación territorial</h3>
+          <p class="mt-3 text-slate-600">Cada comunidad cuenta con líderes de campo para diagnosticar necesidades y ejecutar intervenciones pertinentes.</p>
         </article>
-        <article class="rounded-2xl bg-white p-7 shadow-soft">
-          <div class="mb-4 inline-flex rounded-xl bg-primary/10 p-3 text-primary">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5V4H2v16h5m10 0v-6a3 3 0 00-3-3H10a3 3 0 00-3 3v6m10 0H7"></path></svg>
-          </div>
-          <h3 class="text-xl font-bold text-primary">Participación ciudadana</h3>
-          <p class="mt-2 text-slate-600">Facilitamos donación, voluntariado y alianzas para que cualquier persona pueda ayudar de forma concreta.</p>
+        <article class="rounded-2xl bg-white p-7 shadow-card">
+          <h3 class="text-xl font-bold text-brand-900">Rendición de cuentas</h3>
+          <p class="mt-3 text-slate-600">Publicamos avances por programa, indicadores de cobertura y reportes periódicos para nuestros aliados.</p>
         </article>
-        <article class="rounded-2xl bg-white p-7 shadow-soft">
-          <div class="mb-4 inline-flex rounded-xl bg-primary/10 p-3 text-primary">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.282a1 1 0 00-1.414 0l-1.79 1.79m-1.414 1.414L12 14.5l-3.414-3.414m0 0l-1.79-1.79a1 1 0 10-1.414 1.414l1.79 1.79"></path></svg>
-          </div>
-          <h3 class="text-xl font-bold text-primary">Transparencia</h3>
-          <p class="mt-2 text-slate-600">Comunicamos resultados e impacto para cuidar la confianza de la comunidad y nuestros aliados.</p>
+        <article class="rounded-2xl bg-white p-7 shadow-card">
+          <h3 class="text-xl font-bold text-brand-900">Acompañamiento integral</h3>
+          <p class="mt-3 text-slate-600">Integramos asistencia inmediata con procesos sostenibles de recuperación social y fortalecimiento familiar.</p>
         </article>
       </div>
     </section>
 
     <section id="programas" class="bg-white py-16">
-      <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="mb-10 text-center">
-          <p class="text-sm font-semibold uppercase tracking-widest text-secondary">Programas</p>
-          <h2 class="mt-3 text-3xl font-black text-primary sm:text-4xl">Áreas donde actuamos</h2>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Programas estratégicos</p>
+          <h2 class="mt-3 text-3xl font-black text-brand-900 sm:text-4xl">Intervenimos donde más importa</h2>
         </div>
 
         <div class="grid gap-6 lg:grid-cols-3">
-          <article class="rounded-2xl border border-slate-200 p-7 transition hover:-translate-y-1 hover:shadow-soft">
-            <h3 class="text-xl font-bold text-primary">Seguridad alimentaria</h3>
-            <p class="mt-3 text-slate-600">Entrega de alimentos, comedores comunitarios y apoyo nutricional para niñez y adultos mayores.</p>
+          <article class="rounded-2xl border border-slate-200 p-7 transition hover:-translate-y-1 hover:shadow-card">
+            <h3 class="text-xl font-bold text-brand-900">Seguridad alimentaria</h3>
+            <p class="mt-3 text-slate-600">Comedores comunitarios, suplementos y jornadas de distribución para niños, adultos mayores y familias en riesgo.</p>
           </article>
-          <article class="rounded-2xl border border-slate-200 p-7 transition hover:-translate-y-1 hover:shadow-soft">
-            <h3 class="text-xl font-bold text-primary">Educación y becas</h3>
-            <p class="mt-3 text-slate-600">Útiles escolares, becas formativas y acompañamiento académico en sectores de alta vulnerabilidad.</p>
+          <article class="rounded-2xl border border-slate-200 p-7 transition hover:-translate-y-1 hover:shadow-card">
+            <h3 class="text-xl font-bold text-brand-900">Educación y becas</h3>
+            <p class="mt-3 text-slate-600">Útiles escolares, formación técnica y tutorías para cortar ciclos de pobreza a través del aprendizaje.</p>
           </article>
-          <article class="rounded-2xl border border-slate-200 p-7 transition hover:-translate-y-1 hover:shadow-soft">
-            <h3 class="text-xl font-bold text-primary">Salud integral</h3>
-            <p class="mt-3 text-slate-600">Jornadas médicas, apoyo psicológico y acceso a tratamientos básicos para familias sin recursos.</p>
+          <article class="rounded-2xl border border-slate-200 p-7 transition hover:-translate-y-1 hover:shadow-card">
+            <h3 class="text-xl font-bold text-brand-900">Salud y bienestar</h3>
+            <p class="mt-3 text-slate-600">Atención médica preventiva, apoyo psicológico y acceso a medicinas para comunidades con baja cobertura.</p>
           </article>
         </div>
       </div>
     </section>
 
     <section id="impacto" class="py-16">
-      <div class="mx-auto grid w-full max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
+      <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
         <div>
-          <p class="text-sm font-semibold uppercase tracking-widest text-secondary">Impacto</p>
-          <h2 class="mt-3 text-3xl font-black text-primary sm:text-4xl">Historias que nos inspiran a seguir</h2>
-          <blockquote class="mt-6 rounded-2xl border-l-4 border-accent bg-white p-6 shadow-soft">
-            <p class="text-lg italic text-slate-700">“Gracias al apoyo de la fundación, ahora nuestros niños tienen alimentos y refuerzo escolar cada semana.”</p>
-            <footer class="mt-4 text-sm font-semibold text-slate-500">— Lideresa comunitaria, Distrito Capital</footer>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Impacto real</p>
+          <h2 class="mt-3 text-3xl font-black text-brand-900 sm:text-4xl">Historias respaldadas por datos</h2>
+          <p class="mt-4 text-slate-600">Medimos cobertura, continuidad y resultados para mejorar cada campaña. Tu aporte no se pierde: se transforma en intervención verificable.</p>
+
+          <div class="mt-6 grid grid-cols-2 gap-4">
+            <div class="rounded-xl bg-white p-4 shadow-card">
+              <p class="text-2xl font-black text-brand-900">86%</p>
+              <p class="text-sm text-slate-600">de continuidad escolar tras apoyo anual</p>
+            </div>
+            <div class="rounded-xl bg-white p-4 shadow-card">
+              <p class="text-2xl font-black text-brand-900">120</p>
+              <p class="text-sm text-slate-600">jornadas de salud ejecutadas en 2025</p>
+            </div>
+          </div>
+
+          <blockquote class="mt-6 rounded-2xl border-l-4 border-accent bg-white p-5 shadow-card">
+            <p class="italic text-slate-700">“Antes atendíamos casos aislados; ahora tenemos un sistema de ayuda permanente para toda la comunidad.”</p>
+            <footer class="mt-3 text-sm font-semibold text-slate-500">— Coordinadora comunitaria, Caracas</footer>
           </blockquote>
-          <p class="mt-6 text-slate-600">Nuestro compromiso es mantener resultados medibles, alianzas sólidas y procesos claros para maximizar cada aporte recibido.</p>
         </div>
-        <div class="overflow-hidden rounded-3xl shadow-soft">
-          <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=1200&q=80" alt="Niños participando en actividad educativa" class="h-full min-h-[320px] w-full object-cover" />
+
+        <div class="overflow-hidden rounded-3xl shadow-card">
+          <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=1200&q=80" alt="Actividad educativa con niños en comunidad" class="h-full min-h-[340px] w-full object-cover" />
         </div>
       </div>
     </section>
 
-    <section id="donar" class="bg-primary py-16 text-white">
-      <div class="mx-auto flex w-full max-w-5xl flex-col items-center gap-6 px-4 text-center sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-black sm:text-4xl">Tu aporte puede cambiar una historia hoy</h2>
-        <p class="max-w-2xl text-slate-100">Puedes apoyar con una donación única, mensual o sumándote como voluntario en campañas de campo y apoyo digital.</p>
-        <div class="flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
-          <a href="#contacto" class="rounded-full bg-accent px-8 py-3 font-bold text-primary transition hover:bg-amber-400">Quiero donar</a>
-          <a href="#contacto" class="rounded-full border border-white/70 px-8 py-3 font-bold transition hover:bg-white hover:text-primary">Quiero ser voluntario</a>
+    <section id="alianzas" class="bg-white py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-3xl text-center">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Alianzas</p>
+          <h2 class="mt-3 text-3xl font-black text-brand-900 sm:text-4xl">Sumamos iglesias, empresas y voluntariado</h2>
+          <p class="mt-4 text-slate-600">Diseñamos convenios claros para aportar recursos, talento y logística con objetivos específicos y seguimiento compartido.</p>
+        </div>
+
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+          <div class="rounded-2xl border border-slate-200 p-6">
+            <h3 class="font-bold text-brand-900">Iglesias aliadas</h3>
+            <p class="mt-2 text-sm text-slate-600">Participación en brigadas de campo y acompañamiento espiritual/comunitario.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 p-6">
+            <h3 class="font-bold text-brand-900">Empresas con propósito</h3>
+            <p class="mt-2 text-sm text-slate-600">Patrocinio de campañas, insumos y becas de formación técnica.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 p-6">
+            <h3 class="font-bold text-brand-900">Voluntariado profesional</h3>
+            <p class="mt-2 text-sm text-slate-600">Médicos, docentes y especialistas que donan horas de servicio.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="donar" class="bg-brand-900 py-16 text-white">
+      <div class="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-black sm:text-4xl">Cada aporte abre una nueva oportunidad</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-slate-200">Puedes donar una vez, mensualizar tu apoyo o financiar un programa completo junto a tu iglesia u organización.</p>
+        <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <a href="#contacto" class="rounded-full bg-accent px-8 py-3 font-black text-brand-900">Hacer donación</a>
+          <a href="#contacto" class="rounded-full border border-white/70 px-8 py-3 font-bold">Solicitar llamada</a>
         </div>
       </div>
     </section>
 
     <section id="contacto" class="py-16">
-      <div class="mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-8">
-        <div class="rounded-3xl bg-white p-8 shadow-soft sm:p-10">
-          <h2 class="text-3xl font-black text-primary">Hablemos</h2>
-          <p class="mt-2 text-slate-600">Cuéntanos cómo deseas colaborar y te responderemos pronto.</p>
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <div class="rounded-3xl bg-white p-8 shadow-card sm:p-10">
+          <h2 class="text-3xl font-black text-brand-900">Conversemos</h2>
+          <p class="mt-2 text-slate-600">Compártenos tu interés y te contactaremos para construir una ruta de colaboración.</p>
 
-          <form class="mt-8 space-y-5" action="#" method="POST">
+          <form action="#" method="POST" class="mt-8 space-y-5">
             <div class="grid gap-5 sm:grid-cols-2">
               <div>
-                <label for="nombre" class="text-sm font-semibold text-slate-700">Nombre</label>
-                <input id="nombre" name="nombre" required type="text" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-primary" />
+                <label for="nombre" class="text-sm font-semibold text-slate-700">Nombre completo</label>
+                <input id="nombre" name="nombre" type="text" required class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-brand-700" />
               </div>
               <div>
                 <label for="correo" class="text-sm font-semibold text-slate-700">Correo electrónico</label>
-                <input id="correo" name="correo" required type="email" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-primary" />
+                <input id="correo" name="correo" type="email" required class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-brand-700" />
               </div>
             </div>
+
             <div>
-              <label for="interes" class="text-sm font-semibold text-slate-700">¿En qué te interesa participar?</label>
-              <select id="interes" name="interes" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-primary">
+              <label for="tipo" class="text-sm font-semibold text-slate-700">Tipo de colaboración</label>
+              <select id="tipo" name="tipo" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-brand-700">
                 <option>Donación individual</option>
                 <option>Voluntariado</option>
-                <option>Alianza con iglesia/organización</option>
+                <option>Alianza para iglesia/ministerio</option>
+                <option>Alianza corporativa</option>
                 <option>Consulta general</option>
               </select>
             </div>
+
             <div>
               <label for="mensaje" class="text-sm font-semibold text-slate-700">Mensaje</label>
-              <textarea id="mensaje" name="mensaje" rows="4" required class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-primary"></textarea>
+              <textarea id="mensaje" name="mensaje" rows="4" required class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-brand-700"></textarea>
             </div>
-            <button type="submit" class="w-full rounded-full bg-primary px-8 py-3 font-bold text-white transition hover:bg-secondary sm:w-auto">Enviar mensaje</button>
+
+            <button type="submit" class="w-full rounded-full bg-brand-700 px-8 py-3 font-bold text-white transition hover:bg-brand-900 sm:w-auto">Enviar mensaje</button>
           </form>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="border-t border-slate-200 bg-white">
-    <div class="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-slate-500 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
-      <p>© 2026 El Salvador es Cristo. Todos los derechos reservados.</p>
-      <p>Contacto: hola@elsalvadorescristo.org · +58 412 000 0000</p>
+  <footer class="bg-white border-t border-slate-200">
+    <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-8 text-sm text-slate-500 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+      <p>© 2026 Fundación El Salvador es Cristo. Todos los derechos reservados.</p>
+      <p>contacto@elsalvadorescristo.org · +58 412 000 0000</p>
     </div>
   </footer>
 
   <script>
-    const menuButton = document.getElementById('menu-btn');
+    const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
 
-    menuButton.addEventListener('click', () => {
+    menuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
+      menuBtn.setAttribute('aria-expanded', String(!mobileMenu.classList.contains('hidden')));
     });
 
     mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
     });
   </script>
 </body>
