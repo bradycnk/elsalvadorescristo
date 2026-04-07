@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "ES2020",
+    "strict": true,
+    "outDir": "assets",
+    "rootDir": "src",
+    "removeComments": true,
+    "sourceMap": false
+  },
+  "include": ["src/**/*.ts"]
+}
